@@ -127,3 +127,22 @@ html[data-keyboard=open] .rest-bar,html[data-keyboard=open] .toast { bottom:12px
 .guide-exercise > .eyebrow { margin-bottom:10px; }
 .guide-exercise h2 { line-height:1.45; }
 .guide-exercise > p:last-child { margin-bottom:0; }
+
+.active-exercise-position { font-size:13px; font-weight:650; color:var(--forest); margin-bottom:14px; }
+#active-exercise { scroll-margin-top:80px; }
+.active-exercise-title { display:grid; grid-template-columns:minmax(0,1fr) 116px; gap:14px; align-items:start; margin-bottom:18px; }
+.active-exercise-title .exercise-heading { align-items:flex-start; gap:10px; margin:0; }
+.active-exercise-title .exercise-heading h2 { font-size:18px; line-height:1.4; }
+.active-exercise-title .exercise-heading p { font-size:12px; line-height:1.6; }
+.active-exercise-title .exercise-visual { margin:0; }
+.active-exercise-title .exercise-visual-toggle { flex-direction:column; padding:8px 6px; gap:6px; min-height:0; text-align:center; }
+.active-exercise-title .exercise-visual-toggle img { width:100%; height:auto; aspect-ratio:1; }
+.active-exercise-title .exercise-visual-caption { align-items:center; }
+.active-exercise-title .exercise-visual-caption strong { display:none; }
+.active-exercise-title .exercise-visual-caption > span { font-size:10px; gap:4px; }
+.active-exercise-title:has(.is-expanded) { grid-template-columns:1fr; }
+.active-exercise-title .is-expanded .exercise-visual-caption strong { display:block; }
+.exercise-stepper { display:grid; grid-template-columns:auto minmax(0,1fr); gap:10px; margin:0 0 20px; }
+.exercise-stepper button { padding:12px 10px; min-height:48px; font-size:12px; }
+.previous-exercise-icon { transform:rotate(90deg); }
+@media(max-width:359px) { .active-exercise-title { grid-template-columns:minmax(0,1fr) 96px; gap:10px; } .active-exercise-title .exercise-heading { flex-direction:column; } }

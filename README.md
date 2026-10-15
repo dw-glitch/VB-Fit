@@ -29,7 +29,7 @@ Importe este repositório na Vercel usando o preset Vite, `npm run build`, saíd
 ## Módulos
 
 - Hoje: rotina do dia, resumo semanal e atalhos.
-- Treinos: fichas editáveis/duplicáveis/arquiváveis, calendário, sessões com snapshot, cargas/repetições, descanso, histórico e progressão por regras. Imagens ilustrativas dos 19 exercícios aparecem nas fichas, na edição, no treino ativo e no histórico; toque para ampliar.
+- Treinos: fichas editáveis/duplicáveis/arquiváveis, calendário, sessões com snapshot, cargas/repetições, descanso, histórico e progressão por regras. Ao iniciar o treino, a tela abre no primeiro exercício, com imagem ao lado do nome, séries abaixo e botões Anterior/Próximo. Somente um exercício fica visível por vez; os valores ainda não concluídos permanecem ao voltar. Imagens dos 19 exercícios também aparecem nas fichas, na edição e no histórico; toque para ampliar.
 - Alimentação: refeições recorrentes, favoritas, lanche levado/consumido e alertas indicativos de restrição.
 - Hábitos e recuperação: rotinas, suplementação com dose cadastrada pelo usuário, sono e disposição.
 - Evolução: medidas datadas, períodos, cargas, frequência e fotos privadas.

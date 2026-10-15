@@ -3,7 +3,7 @@
 ## Evidências executadas
 
 - Build de produção com TypeScript estrito e Vite.
-- 42 testes automatizados: 7 de domínio, 4 de fila offline/privacidade, 7 de renderização, 4 de viewport/teclado, 16 de confirmação/recuperação pelo link de e-mail e 4 de cobertura/integridade/renderização das imagens.
+- 44 testes automatizados: 7 de domínio, 4 de fila offline/privacidade, 7 de renderização, 4 de viewport/teclado, 16 de confirmação/recuperação pelo link de e-mail e 4 de cobertura/integridade/renderização das imagens e 2 de interação do fluxo de exercício por tela.
 - Teste integrado real em PostgreSQL/Supabase com dois usuários temporários, dentro de transação revertida: RLS, tentativa de propriedade forjada, FKs por proprietário, sessão ativa única, upsert de série, refeições, suplemento, criação/aceitação/reutilização de convite, privacidade inicial, compartilhamento autorizado, desfazer vínculo e bloqueio anônimo.
 - Auditor de segurança Supabase: nenhum alerta após a migration de hardening.
 - Edge Function de exclusão de conta publicada, com validação do usuário autenticado.
@@ -66,3 +66,11 @@ A atualização foi publicada na Vercel no commit `98471ce`. A opção foi abert
 - Guia público em `/exercicios`, com busca por exercício, músculo ou equipamento, disponível antes do login e pelo módulo Treinos. Não expõe dados de usuários.
 - Testes conferem a cobertura de todos os IDs da migration do catálogo, integridade dos 19 PNGs, renderização do guia e presença da imagem na ficha salva e no treino ativo. Exercícios sem correspondência não recebem imagens de outro exercício.
 - Build inclui os 19 PNGs (435.177 bytes somados) no cache estático da PWA. Cargas e dados privados continuam fora do Cache Storage.
+
+A versão do commit `891550c` foi publicada e aberta no navegador em `https://vb-fit.vercel.app/exercicios`. O guia listou 19 exercícios; buscar “supino” filtrou para dois. As duas imagens carregaram com resolução original de 512 px. A ampliação mudou o estado acessível para expandido e exibiu a imagem com 368 px, com créditos visíveis. Canvas compacto de 480 px, sem rolagem horizontal. Captura em `docs/exercise-guide.jpg`. A conferência interativa cobre o guia público; presença das imagens nas fichas e sessões foi coberta pelos testes de renderização.
+
+## Exercício aberto ao iniciar o treino
+
+A sessão inicia no primeiro exercício com a referência visual ao lado do nome e as séries abaixo. Os controles Anterior/Próximo mostram apenas um exercício por vez, sem pesquisa. Os painéis dos demais exercícios ficam montados e ocultos para preservar cargas/repetições ainda não concluídas ao avançar e voltar. Trocar de exercício não marca séries como concluídas. O último exercício oferece Finalizar treino com a confirmação de conclusão existente.
+
+Dois testes de interação com React DOM conferem abertura direta com imagem e séries, ausência de pesquisa no treino, navegação entre dois exercícios, correspondência das imagens e preservação da carga digitada ao voltar. O guia público continua complementar ao fluxo principal.
