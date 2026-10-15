@@ -3,16 +3,16 @@
 ## Evidências executadas
 
 - Build de produção com TypeScript estrito e Vite.
-- 18 testes automatizados: 7 de regras de domínio, 4 de fila offline/privacidade do cache e 7 de renderização das telas com conta vazia.
+- 38 testes automatizados: 7 de domínio, 4 de fila offline/privacidade, 7 de renderização, 4 de viewport/teclado e 16 de confirmação/recuperação pelo link de e-mail.
 - Teste integrado real em PostgreSQL/Supabase com dois usuários temporários, dentro de transação revertida: RLS, tentativa de propriedade forjada, FKs por proprietário, sessão ativa única, upsert de série, refeições, suplemento, criação/aceitação/reutilização de convite, privacidade inicial, compartilhamento autorizado, desfazer vínculo e bloqueio anônimo.
 - Auditor de segurança Supabase: nenhum alerta após a migration de hardening.
 - Edge Function de exclusão de conta publicada, com validação do usuário autenticado.
 
 ## Limites da verificação
 
-Não foi executado teste interativo em navegador nem teste de envio real de e-mail. Os testes de renderização verificam a saída React, não substituem a avaliação visual no celular. Instalação de PWA, uso em iOS/Android e envio de confirmação/recuperação devem ser validados nos dispositivos finais.
+A tela pública de acesso foi inspecionada no navegador, conforme evidência abaixo. Ainda não foi executado teste autenticado completo nem teste de envio real de e-mail. Os testes de renderização verificam a saída React, não substituem a avaliação visual no celular. Instalação de PWA, uso em iOS/Android e envio de confirmação/recuperação devem ser validados nos dispositivos finais.
 
-A configuração de Site URL/Redirect URLs do Supabase não é exposta pelo conector disponível. Ela deve apontar para a URL final da Vercel antes de considerar a autenticação por e-mail totalmente validada.
+A configuração de Site URL/Redirect URLs do Supabase não é exposta pelo conector disponível. O redirecionamento normal deve apontar para a URL final da Vercel antes de ser considerado validado. Há um caminho alternativo por link colado no app, descrito abaixo.
 
 O design local de referência está em `docs/design`. O canvas MagicPath foi criado, mas o envio dos arquivos foi bloqueado pela conectividade do ambiente; o fallback inline retornou `COMPONENT_ARCHIVE_MISSING`. Isso não interfere no código do aplicativo ou no deployment Vercel.
 
@@ -48,3 +48,11 @@ Nenhum serviço adicional de IA, SMS ou push pago foi contratado. O uso segue os
 ### Conferência da tela de acesso publicada
 
 A tela foi carregada no navegador após o deployment do commit `7e139a8`. A inspeção do DOM confirmou conteúdo compacto de 480 px, campos de 48 px com fonte de 16 px, botão principal de 44 px e largura de rolagem igual à largura visível da página. A captura está em `docs/mobile-login.jpg`. Essa evidência cobre a tela de acesso; os módulos autenticados e aparelhos físicos ainda não foram testados no navegador.
+
+## Alternativa ao painel Supabase indisponível
+
+- O painel continuou bloqueado na etapa de autenticação; nenhuma configuração administrativa de Auth foi alterada.
+- A opção **Usar link do e-mail** troca o token hash do link original diretamente por uma sessão usando o SDK oficial, sem seguir o redirecionamento. O usuário precisa receber o e-mail e copiar o endereço do botão sem consumi-lo.
+- Origem e caminho exatos são validados. Links de outros projetos, HTTP, credenciais na URL, tipos não suportados e parâmetros duplicados são recusados antes de qualquer requisição. O link só existe em estado transitório do formulário; não é gravado em URL, cache ou logs.
+- Testes com transporte HTTP simulado e SDK real verificam POST de confirmação, sessão retornada, evento PASSWORD_RECOVERY e recusa de link expirado sem sessão. A tela de recuperação é remontada com estado limpo antes da nova senha.
+- Reenvio de confirmação e novo pedido de recuperação estão disponíveis. Nenhum e-mail real foi disparado nos testes. A entrega e eventuais restrições de destinatário/SMTP ainda precisam de validação real.

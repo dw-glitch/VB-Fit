@@ -99,3 +99,6 @@ html[data-keyboard=open] .rest-bar,html[data-keyboard=open] .toast { bottom:12px
  .modal-backdrop { align-items:center; }
  .modal,.modal.wide { max-height:calc(var(--visible-height,100dvh) - 20px); }
 }
+
+.email-link-steps { padding-left:21px; color:var(--muted); font-size:13px; line-height:1.7; margin-bottom:22px; }
+.email-link-steps li + li { margin-top:9px; }

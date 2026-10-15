@@ -16,6 +16,8 @@ Em um ambiente com a CLI oficial, consulte `supabase --help`, vincule o projeto 
 
 Configure **Authentication → URL Configuration** com a URL de produção do aplicativo em Site URL e Redirect URLs. Inclua também `http://localhost:5173` para desenvolvimento quando necessário. Ative e-mail/senha e confirmação de e-mail; configure SMTP próprio se os limites do serviço padrão impedirem envio. O aplicativo passa a origem atual como destino de confirmação e recuperação; essa origem precisa ser autorizada.
 
+Quando o botão do e-mail não retorna ao app, a tela **Usar link do e-mail** permite copiar o endereço original do botão de confirmação/recuperação e verificá-lo diretamente com `verifyOtp`. Só aceita HTTPS, a origem exata deste projeto e os tipos `email`, `signup` e `recovery`. Não segue `redirect_to`, não grava o link em URL/cache e não usa chaves administrativas. Links já consumidos/expirados exigem um novo envio; a tela oferece reenvio de confirmação e recuperação. Isso mantém a confirmação de propriedade do e-mail e dispensa o redirecionamento nesse caminho, mas não corrige configurações do painel nem limites/restrições do serviço de e-mail.
+
 Publique `supabase/functions/delete-account/index.ts` como Edge Function `delete-account`. Ela verifica o bearer token com `auth.getUser`, remove fotos privadas, encerra sessões e exclui exclusivamente o próprio usuário. Somente a função recebe a service role, pelas variáveis internas do Supabase. Nunca configure essa chave na Vercel.
 
 O bucket `private-photos` é privado, limitado a 5 MB e JPG/PNG/WebP. Políticas validam a pasta com o UUID do usuário. URLs assinadas duram 5 minutos; fotos não são compartilhadas com o casal.
