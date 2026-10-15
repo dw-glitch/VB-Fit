@@ -56,3 +56,5 @@ A tela foi carregada no navegador após o deployment do commit `7e139a8`. A insp
 - Origem e caminho exatos são validados. Links de outros projetos, HTTP, credenciais na URL, tipos não suportados e parâmetros duplicados são recusados antes de qualquer requisição. O link só existe em estado transitório do formulário; não é gravado em URL, cache ou logs.
 - Testes com transporte HTTP simulado e SDK real verificam POST de confirmação, sessão retornada, evento PASSWORD_RECOVERY e recusa de link expirado sem sessão. A tela de recuperação é remontada com estado limpo antes da nova senha.
 - Reenvio de confirmação e novo pedido de recuperação estão disponíveis. Nenhum e-mail real foi disparado nos testes. A entrega e eventuais restrições de destinatário/SMTP ainda precisam de validação real.
+
+A atualização foi publicada na Vercel no commit `98471ce`. A opção foi aberta pela tela pública de produção; o DOM confirmou canvas de 480 px, campo de 16 px, botão de 44 px e nenhuma rolagem horizontal. Captura: `docs/mobile-email-link.jpg`. Essa conferência não enviou e-mail nem iniciou sessão real.
