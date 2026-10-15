@@ -29,7 +29,7 @@ Importe este repositório na Vercel usando o preset Vite, `npm run build`, saíd
 ## Módulos
 
 - Hoje: rotina do dia, resumo semanal e atalhos.
-- Treinos: fichas editáveis/duplicáveis/arquiváveis, calendário, sessões com snapshot, cargas/repetições, descanso, histórico e progressão por regras.
+- Treinos: fichas editáveis/duplicáveis/arquiváveis, calendário, sessões com snapshot, cargas/repetições, descanso, histórico e progressão por regras. Imagens ilustrativas dos 19 exercícios aparecem nas fichas, na edição, no treino ativo e no histórico; toque para ampliar.
 - Alimentação: refeições recorrentes, favoritas, lanche levado/consumido e alertas indicativos de restrição.
 - Hábitos e recuperação: rotinas, suplementação com dose cadastrada pelo usuário, sono e disposição.
 - Evolução: medidas datadas, períodos, cargas, frequência e fotos privadas.
@@ -60,3 +60,7 @@ Os históricos carregados na interface têm limites operacionais (300 sessões, 
 A interface usa a mesma estrutura compacta em todas as larguras e fica limitada a 480 px quando aberta em uma tela maior. A navegação inferior respeita a área segura do aparelho; alvos principais têm pelo menos 44 px e campos usam 16 px para evitar zoom involuntário ao editar no iPhone. Em larguras abaixo de 360 px os formulários passam para uma coluna. Os sete dias da semana permanecem em uma linha.
 
 `useMobileViewport` acompanha a área visível e oculta a navegação enquanto o teclado está aberto. As folhas de edição se ajustam à altura disponível. Isso é uma adaptação de layout; a instalação da PWA e o teclado de cada versão de iOS/Android ainda exigem conferência no aparelho.
+
+## Guia visual de exercícios
+
+`/exercicios` é um guia público do catálogo, sem dados de contas, com busca por nome, grupo muscular e equipamento. Também é acessível pela tela de entrada e por Treinos. As imagens são locais, totalizam aproximadamente 435 kB e entram no cache estático da PWA; não dependem de servidor de imagens externo. Créditos e licença CC BY-SA 4.0 aparecem ao ampliar. Origem, hashes e termos estão em `docs/EXERCISE-MEDIA.md` e `src/data/exercise-media.json`.

@@ -1,0 +1,411 @@
+[
+  {
+    "id": "supino",
+    "name": "Supino reto",
+    "muscle": "Peito",
+    "cues": "Ajuste o banco e a carga com orientação presencial. Mantenha os pés apoiados e controle o movimento.",
+    "variant": "Barra no banco reto",
+    "sourceSlug": "bench-press",
+    "sourceUrl": "https://bryllim.github.io/workout-guide/exercises/bench-press/",
+    "attribution": {
+      "creator": "Bryl Lim",
+      "creatorUrl": "https://bryllim.com",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "source": {
+        "name": "Everkinetic",
+        "url": "https://github.com/everkinetic/data/blob/main/dist/svg/0042-tension.svg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "changes": "Rasterized on a transparent 512 × 512 canvas and recolored for monochrome display."
+      }
+    },
+    "sha256": "d15ef9b2bb07e8fe91f90f53e9fde947d016f11aca05ab681be55df734681c05"
+  },
+  {
+    "id": "puxada",
+    "name": "Puxada frontal",
+    "muscle": "Costas",
+    "cues": "Ajuste o apoio das coxas. Puxe à frente do corpo com controle, sem embalar o tronco.",
+    "variant": "Polia alta, pegada aberta",
+    "sourceSlug": "lat-pulldown",
+    "sourceUrl": "https://bryllim.github.io/workout-guide/exercises/lat-pulldown/",
+    "attribution": {
+      "creator": "Bryl Lim",
+      "creatorUrl": "https://bryllim.com",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "source": {
+        "name": "Everkinetic",
+        "url": "https://github.com/everkinetic/data/blob/main/dist/svg/0093-tension.svg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "changes": "Rasterized on a transparent 512 × 512 canvas and recolored for monochrome display."
+      }
+    },
+    "sha256": "0b6f56011e9095cb1c8b1b4ae24b65b12ccc9debb25543c07b0b128eeb709935"
+  },
+  {
+    "id": "remada",
+    "name": "Remada baixa",
+    "muscle": "Costas",
+    "cues": "Mantenha o tronco estável e evite compensar o movimento com a lombar.",
+    "variant": "Polia baixa, sentado",
+    "sourceSlug": "seated-row",
+    "sourceUrl": "https://bryllim.github.io/workout-guide/exercises/seated-row/",
+    "attribution": {
+      "creator": "Bryl Lim",
+      "creatorUrl": "https://bryllim.com",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "source": {
+        "name": "Everkinetic",
+        "url": "https://github.com/everkinetic/data/blob/main/dist/svg/0025-tension.svg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "changes": "Rasterized on a transparent 512 × 512 canvas and recolored for monochrome display."
+      }
+    },
+    "sha256": "54204837ba7f4a22830585bf2549c6698e9eb7d980d21ece5698f50968b92ea1"
+  },
+  {
+    "id": "ombros",
+    "name": "Desenvolvimento de ombros",
+    "muscle": "Ombros",
+    "cues": "Escolha uma amplitude confortável e uma carga que permita controle.",
+    "variant": "Halteres, sentado",
+    "sourceSlug": "seated-dumbbell-press",
+    "sourceUrl": "https://bryllim.github.io/workout-guide/exercises/seated-dumbbell-press/",
+    "attribution": {
+      "creator": "Bryl Lim",
+      "creatorUrl": "https://bryllim.com",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    "sha256": "53d5ee5e1db6b64c7c2f90dab1581c8262e5c408092ec85797faff645e2abf6a"
+  },
+  {
+    "id": "triceps",
+    "name": "Tríceps na polia",
+    "muscle": "Braços",
+    "cues": "Mantenha os cotovelos estáveis e controle o retorno.",
+    "variant": "Polia alta com barra",
+    "sourceSlug": "tricep-pushdown",
+    "sourceUrl": "https://bryllim.github.io/workout-guide/exercises/tricep-pushdown/",
+    "attribution": {
+      "creator": "Bryl Lim",
+      "creatorUrl": "https://bryllim.com",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "source": {
+        "name": "Everkinetic",
+        "url": "https://github.com/everkinetic/data/blob/main/dist/svg/0205-tension.svg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "changes": "Rasterized on a transparent 512 × 512 canvas and recolored for monochrome display."
+      }
+    },
+    "sha256": "85ef637f58ba23a51668d05187451fd762e23319ac796f3e4b4b40e0404b7af4"
+  },
+  {
+    "id": "legpress",
+    "name": "Leg press 45°",
+    "muscle": "Pernas",
+    "cues": "Ajuste o banco com orientação. Preserve o apoio da lombar e não trave os joelhos.",
+    "variant": "Máquina inclinada a 45°",
+    "sourceSlug": "leg-press",
+    "sourceUrl": "https://bryllim.github.io/workout-guide/exercises/leg-press/",
+    "attribution": {
+      "creator": "Bryl Lim",
+      "creatorUrl": "https://bryllim.com",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "source": {
+        "name": "Everkinetic",
+        "url": "https://github.com/everkinetic/data/blob/main/dist/svg/0127-tension.svg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "changes": "Rasterized on a transparent 512 × 512 canvas and recolored for monochrome display."
+      }
+    },
+    "sha256": "650a3a35d5e4a79ebec3ddb8d900d4fc324504dbed875170abfb4e1d76ea505f"
+  },
+  {
+    "id": "smith",
+    "name": "Agachamento no Smith",
+    "muscle": "Pernas",
+    "cues": "Ajuste os limitadores de segurança e confirme a posição dos pés com o instrutor.",
+    "variant": "Barra guiada no Smith",
+    "sourceSlug": "smith-machine-squat",
+    "sourceUrl": "https://bryllim.github.io/workout-guide/exercises/smith-machine-squat/",
+    "attribution": {
+      "creator": "Bryl Lim",
+      "creatorUrl": "https://bryllim.com",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "source": {
+        "name": "Everkinetic",
+        "url": "https://github.com/everkinetic/data/blob/main/dist/svg/0124-tension.svg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "changes": "Rasterized on a transparent 512 × 512 canvas and recolored for monochrome display."
+      }
+    },
+    "sha256": "92cd14034f5bfce908e6213ac778b2a6fc0ba20ba27cbbd01d4d2d3bc4e6f323"
+  },
+  {
+    "id": "mesa",
+    "name": "Mesa flexora",
+    "muscle": "Pernas",
+    "cues": "Alinhe o eixo da máquina ao joelho e mantenha o quadril apoiado.",
+    "variant": "Máquina flexora, deitado",
+    "sourceSlug": "lying-leg-curl",
+    "sourceUrl": "https://bryllim.github.io/workout-guide/exercises/lying-leg-curl/",
+    "attribution": {
+      "creator": "Bryl Lim",
+      "creatorUrl": "https://bryllim.com",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "source": {
+        "name": "Everkinetic",
+        "url": "https://github.com/everkinetic/data/blob/main/dist/svg/0117-tension.svg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "changes": "Rasterized on a transparent 512 × 512 canvas and recolored for monochrome display."
+      }
+    },
+    "sha256": "e47e5cb69579b93bcd6f18afc38789b91abab446cda651cef6e73b4bbe49f88c"
+  },
+  {
+    "id": "pelvica",
+    "name": "Elevação pélvica",
+    "muscle": "Glúteos",
+    "cues": "Mantenha o apoio estável e evite hiperestender a lombar no final do movimento.",
+    "variant": "Barra com apoio no banco",
+    "sourceSlug": "hip-thrust",
+    "sourceUrl": "https://bryllim.github.io/workout-guide/exercises/hip-thrust/",
+    "attribution": {
+      "creator": "Bryl Lim",
+      "creatorUrl": "https://bryllim.com",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    "sha256": "3c89384540b1a803240fd3faadeaa942a599d81bc0fb82514475168a2b6aa5b6"
+  },
+  {
+    "id": "panturrilha",
+    "name": "Panturrilha",
+    "muscle": "Panturrilhas",
+    "cues": "Faça o movimento de forma lenta e controlada, sem impulsos.",
+    "variant": "Máquina, em pé",
+    "sourceSlug": "standing-calf-raise",
+    "sourceUrl": "https://bryllim.github.io/workout-guide/exercises/standing-calf-raise/",
+    "attribution": {
+      "creator": "Bryl Lim",
+      "creatorUrl": "https://bryllim.com",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "source": {
+        "name": "Everkinetic",
+        "url": "https://github.com/everkinetic/data/blob/main/dist/svg/0282-tension.svg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "changes": "Rasterized on a transparent 512 × 512 canvas and recolored for monochrome display."
+      }
+    },
+    "sha256": "ab5fd8a91237451d8ee2c64af6002c92fabdd4b89039e6ac0f0c0f331e33a5e3"
+  },
+  {
+    "id": "articulada",
+    "name": "Remada articulada",
+    "muscle": "Costas",
+    "cues": "Ajuste os apoios e mantenha o tronco estável.",
+    "variant": "Máquina de remada, sentado",
+    "sourceSlug": "machine-row",
+    "sourceUrl": "https://bryllim.github.io/workout-guide/exercises/machine-row/",
+    "attribution": {
+      "creator": "Bryl Lim",
+      "creatorUrl": "https://bryllim.com",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    "sha256": "a461b431e735cb4daccb67b0e65fc20310df86a989cd2b3d9d844a165842eab1"
+  },
+  {
+    "id": "inclinado",
+    "name": "Supino inclinado com halteres",
+    "muscle": "Peito",
+    "cues": "Ajuste a inclinação e peça orientação para posicionar os halteres.",
+    "variant": "Halteres no banco inclinado",
+    "sourceSlug": "incline-dumbbell-press",
+    "sourceUrl": "https://bryllim.github.io/workout-guide/exercises/incline-dumbbell-press/",
+    "attribution": {
+      "creator": "Bryl Lim",
+      "creatorUrl": "https://bryllim.com",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "source": {
+        "name": "Everkinetic",
+        "url": "https://github.com/everkinetic/data/blob/main/dist/svg/0061-tension.svg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "changes": "Rasterized on a transparent 512 × 512 canvas and recolored for monochrome display."
+      }
+    },
+    "sha256": "b0efc2cf575d26081e130d46d42c4198712d06a20bd512b368dc50f1f8b94d32"
+  },
+  {
+    "id": "neutra",
+    "name": "Puxada com pegada neutra",
+    "muscle": "Costas",
+    "cues": "Mantenha o tronco estável e controle a descida e a volta.",
+    "variant": "Polia alta com pegador neutro",
+    "sourceSlug": "close-grip-lat-pulldown",
+    "sourceUrl": "https://bryllim.github.io/workout-guide/exercises/close-grip-lat-pulldown/",
+    "attribution": {
+      "creator": "Bryl Lim",
+      "creatorUrl": "https://bryllim.com",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "source": {
+        "name": "Everkinetic",
+        "url": "https://github.com/everkinetic/data/blob/main/dist/svg/0096-tension.svg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "changes": "Rasterized on a transparent 512 × 512 canvas and recolored for monochrome display."
+      }
+    },
+    "sha256": "2f1996c9a84740bb7532cbb581eb6c10da28563e5fc92d143b76d868634ce573"
+  },
+  {
+    "id": "lateral",
+    "name": "Elevação lateral",
+    "muscle": "Ombros",
+    "cues": "Use carga leve o suficiente para não precisar balançar o corpo.",
+    "variant": "Halteres, em pé",
+    "sourceSlug": "lateral-raise",
+    "sourceUrl": "https://bryllim.github.io/workout-guide/exercises/lateral-raise/",
+    "attribution": {
+      "creator": "Bryl Lim",
+      "creatorUrl": "https://bryllim.com",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "source": {
+        "name": "Everkinetic",
+        "url": "https://github.com/everkinetic/data/blob/main/dist/svg/0018-tension.svg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "changes": "Rasterized on a transparent 512 × 512 canvas and recolored for monochrome display."
+      }
+    },
+    "sha256": "ce88e390582311a992ce7c86c9cd7def98c650f6d6581f74ed14a15e07df6d39"
+  },
+  {
+    "id": "rosca",
+    "name": "Rosca direta",
+    "muscle": "Braços",
+    "cues": "Mantenha os cotovelos próximos ao corpo, sem impulso com o tronco.",
+    "variant": "Variação com halteres, em pé",
+    "sourceSlug": "bicep-curl",
+    "sourceUrl": "https://bryllim.github.io/workout-guide/exercises/bicep-curl/",
+    "attribution": {
+      "creator": "Bryl Lim",
+      "creatorUrl": "https://bryllim.com",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "source": {
+        "name": "Everkinetic",
+        "url": "https://github.com/everkinetic/data/blob/main/dist/svg/0224-tension.svg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "changes": "Rasterized on a transparent 512 × 512 canvas and recolored for monochrome display."
+      }
+    },
+    "sha256": "895857b03b21dcf1e36557d7c301b8a4635528d245541a59b2615a8d31c51247"
+  },
+  {
+    "id": "stiff",
+    "name": "Stiff com halteres",
+    "muscle": "Pernas",
+    "cues": "Aprenda a dobrar o quadril com orientação e mantenha a coluna em posição confortável.",
+    "variant": "Halteres, movimento de quadril",
+    "sourceSlug": "dumbbell-romanian-deadlift",
+    "sourceUrl": "https://bryllim.github.io/workout-guide/exercises/dumbbell-romanian-deadlift/",
+    "attribution": {
+      "creator": "Bryl Lim",
+      "creatorUrl": "https://bryllim.com",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    "sha256": "a38ea2db48b6d5f10d8f1b9177d65a1b028a7df84cf1d8b275ba62abeade1663"
+  },
+  {
+    "id": "extensora",
+    "name": "Cadeira extensora",
+    "muscle": "Pernas",
+    "cues": "Alinhe o eixo ao joelho e ajuste o apoio dos tornozelos.",
+    "variant": "Máquina extensora, sentado",
+    "sourceSlug": "leg-extension",
+    "sourceUrl": "https://bryllim.github.io/workout-guide/exercises/leg-extension/",
+    "attribution": {
+      "creator": "Bryl Lim",
+      "creatorUrl": "https://bryllim.com",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "source": {
+        "name": "Everkinetic",
+        "url": "https://github.com/everkinetic/data/blob/main/dist/svg/0142-tension.svg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "changes": "Rasterized on a transparent 512 × 512 canvas and recolored for monochrome display."
+      }
+    },
+    "sha256": "7b139c4708ac492ebae534774a713b49f8d1e1d7a3c65014b28f2fe997efa993"
+  },
+  {
+    "id": "flexora",
+    "name": "Cadeira flexora",
+    "muscle": "Pernas",
+    "cues": "Ajuste encosto, eixo e apoios com o instrutor.",
+    "variant": "Máquina flexora, sentado",
+    "sourceSlug": "seated-leg-curl",
+    "sourceUrl": "https://bryllim.github.io/workout-guide/exercises/seated-leg-curl/",
+    "attribution": {
+      "creator": "Bryl Lim",
+      "creatorUrl": "https://bryllim.com",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "source": {
+        "name": "Everkinetic",
+        "url": "https://github.com/everkinetic/data/blob/main/dist/svg/0119-tension.svg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "changes": "Rasterized on a transparent 512 × 512 canvas and recolored for monochrome display."
+      }
+    },
+    "sha256": "948b7bc680415fbadfc8ed457e9ba981a1b09d9dcba3c4a931a544e2ef05896f"
+  },
+  {
+    "id": "sentado",
+    "name": "Panturrilha sentado",
+    "muscle": "Panturrilhas",
+    "cues": "Ajuste os apoios e faça uma amplitude confortável, sem impulsos.",
+    "variant": "Máquina de panturrilha, sentado",
+    "sourceSlug": "seated-calf-raise",
+    "sourceUrl": "https://bryllim.github.io/workout-guide/exercises/seated-calf-raise/",
+    "attribution": {
+      "creator": "Bryl Lim",
+      "creatorUrl": "https://bryllim.com",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "source": {
+        "name": "Everkinetic",
+        "url": "https://github.com/everkinetic/data/blob/main/dist/svg/0279-tension.svg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "changes": "Rasterized on a transparent 512 × 512 canvas and recolored for monochrome display."
+      }
+    },
+    "sha256": "ed196c11aec6cd8a53810b66455ce8f396aeadea1df30698457746cdcefa1348"
+  }
+]

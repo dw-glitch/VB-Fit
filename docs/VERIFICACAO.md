@@ -3,7 +3,7 @@
 ## Evidências executadas
 
 - Build de produção com TypeScript estrito e Vite.
-- 38 testes automatizados: 7 de domínio, 4 de fila offline/privacidade, 7 de renderização, 4 de viewport/teclado e 16 de confirmação/recuperação pelo link de e-mail.
+- 42 testes automatizados: 7 de domínio, 4 de fila offline/privacidade, 7 de renderização, 4 de viewport/teclado, 16 de confirmação/recuperação pelo link de e-mail e 4 de cobertura/integridade/renderização das imagens.
 - Teste integrado real em PostgreSQL/Supabase com dois usuários temporários, dentro de transação revertida: RLS, tentativa de propriedade forjada, FKs por proprietário, sessão ativa única, upsert de série, refeições, suplemento, criação/aceitação/reutilização de convite, privacidade inicial, compartilhamento autorizado, desfazer vínculo e bloqueio anônimo.
 - Auditor de segurança Supabase: nenhum alerta após a migration de hardening.
 - Edge Function de exclusão de conta publicada, com validação do usuário autenticado.
@@ -21,7 +21,7 @@ O endpoint de exclusão foi revisado e publicado, mas uma exclusão real de cont
 ## Recursos deliberadamente limitados no MVP
 
 - Lembretes dentro do aplicativo aberto, sem push externo.
-- Sem mídia demonstrativa de exercícios enquanto não houver fonte e licença verificadas.
+- Imagens ilustrativas licenciadas para os 19 exercícios do catálogo; sem vídeos no MVP.
 - Fotos sempre privadas; o compartilhamento de medidas não compartilha fotos.
 - Exportação em JSON; fotos são salvas separadamente pela visualização privada.
 - Históricos da interface limitados; exportação paginada completa.
@@ -58,3 +58,11 @@ A tela foi carregada no navegador após o deployment do commit `7e139a8`. A insp
 - Reenvio de confirmação e novo pedido de recuperação estão disponíveis. Nenhum e-mail real foi disparado nos testes. A entrega e eventuais restrições de destinatário/SMTP ainda precisam de validação real.
 
 A atualização foi publicada na Vercel no commit `98471ce`. A opção foi aberta pela tela pública de produção; o DOM confirmou canvas de 480 px, campo de 16 px, botão de 44 px e nenhuma rolagem horizontal. Captura: `docs/mobile-email-link.jpg`. Essa conferência não enviou e-mail nem iniciou sessão real.
+
+## Imagens dos exercícios
+
+- Os 19 exercícios receberam referências visuais locais da coleção Workout Guide, por Bryl Lim / Everkinetic, sob CC BY-SA 4.0. Créditos originais, links e hashes preservados.
+- Imagens visíveis nas fichas, seleção de exercício, treino em andamento e histórico; toque amplia sem abrir outro modal ou perder os campos de séries.
+- Guia público em `/exercicios`, com busca por exercício, músculo ou equipamento, disponível antes do login e pelo módulo Treinos. Não expõe dados de usuários.
+- Testes conferem a cobertura de todos os IDs da migration do catálogo, integridade dos 19 PNGs, renderização do guia e presença da imagem na ficha salva e no treino ativo. Exercícios sem correspondência não recebem imagens de outro exercício.
+- Build inclui os 19 PNGs (435.177 bytes somados) no cache estático da PWA. Cargas e dados privados continuam fora do Cache Storage.
