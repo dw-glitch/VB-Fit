@@ -1,0 +1,58 @@
+begin;
+select set_config('test.usera',gen_random_uuid()::text,true),set_config('test.userb',gen_random_uuid()::text,true);
+insert into auth.users(id,aud,role,email,email_confirmed_at,created_at,updated_at) values(current_setting('test.usera')::uuid,'authenticated','authenticated','vbfit-qa-a-'||current_setting('test.usera')||'@example.invalid',now(),now(),now()),(current_setting('test.userb')::uuid,'authenticated','authenticated','vbfit-qa-b-'||current_setting('test.userb')||'@example.invalid',now(),now(),now());
+set local role authenticated;
+select set_config('request.jwt.claims',jsonb_build_object('sub',current_setting('test.usera'),'role','authenticated')::text,true);
+insert into public.profiles(user_id,name) values(auth.uid(),'QA A');
+insert into public.measurements(user_id,day,weight_kg) values(auth.uid(),current_date,70);
+select set_config('test.template',public.save_workout(jsonb_build_object('name','QA ficha','days','[1,3]'::jsonb,'scheduled_time','18:30','exercises','[{"exercise_id":"supino","position":0,"sets":2,"reps_min":8,"reps_max":10,"rest_seconds":90}]'::jsonb))::text,true);
+select set_config('test.session',public.start_workout(gen_random_uuid(),current_setting('test.template')::uuid,'Boa')::text,true);
+do $$begin if public.start_workout(gen_random_uuid(),current_setting('test.template')::uuid,'Boa')<>current_setting('test.session')::uuid then raise exception 'FAIL duplicate active session';end if;end$$;
+select set_config('test.exercise',(select id::text from public.session_exercises where session_id=current_setting('test.session')::uuid),true);
+insert into public.performed_sets(id,user_id,session_exercise_id,set_number,weight_kg,reps) values(gen_random_uuid(),auth.uid(),current_setting('test.exercise')::uuid,1,20,10);
+insert into public.performed_sets(id,user_id,session_exercise_id,set_number,weight_kg,reps) values(gen_random_uuid(),auth.uid(),current_setting('test.exercise')::uuid,1,20,10) on conflict(session_exercise_id,set_number) do update set reps=excluded.reps;
+do $$begin if (select count(*) from public.performed_sets)<>1 then raise exception 'FAIL duplicate sets';end if;end$$;
+update public.workout_sessions set status='completed',finished_at=now() where id=current_setting('test.session')::uuid;
+insert into public.meal_plans(user_id,title,time,days,work_snack) values(auth.uid(),'QA lanche','16:00','{1,2,3,4,5}',true);
+select set_config('test.meal',(select id::text from public.meal_plans limit 1),true);
+insert into public.meal_logs(user_id,meal_id,day,carried,consumed) values(auth.uid(),current_setting('test.meal')::uuid,current_date,true,true);
+insert into public.routine_items(user_id,kind,name,time) values(auth.uid(),'supplement','QA rotina','08:00');
+insert into public.routine_logs(user_id,item_id,day) select auth.uid(),id,current_date from public.routine_items;
+select set_config('test.invite',public.create_couple_invite(),true);
+select set_config('request.jwt.claims',jsonb_build_object('sub',current_setting('test.userb'),'role','authenticated')::text,true);
+insert into public.profiles(user_id,name) values(auth.uid(),'QA B');
+do $$begin
+ if (select count(*) from public.measurements)<>0 or (select count(*) from public.profiles)<>1 or (select count(*) from public.performed_sets)<>0 then raise exception 'FAIL private data leak before link';end if;
+ begin insert into public.measurements(user_id,day,weight_kg) values(current_setting('test.usera')::uuid,current_date,80);raise exception 'FAIL forged owner accepted';exception when insufficient_privilege then null;end;
+ begin insert into public.performed_sets(id,user_id,session_exercise_id,set_number,weight_kg,reps) values(gen_random_uuid(),auth.uid(),current_setting('test.exercise')::uuid,2,30,8);raise exception 'FAIL cross-owner relation accepted';exception when foreign_key_violation then null;end;
+end$$;
+select set_config('test.couple',public.accept_couple_invite(current_setting('test.invite'))::text,true);
+do $$begin
+ if (public.partner_summary() ? 'workouts') or (public.partner_summary() ? 'measurements') then raise exception 'FAIL sharing enabled by default';end if;
+ if (select count(*) from public.measurements)<>0 then raise exception 'FAIL link exposes personal table';end if;
+ begin perform public.accept_couple_invite(current_setting('test.invite'));raise exception 'FAIL reused invite';exception when raise_exception then if sqlerrm='FAIL reused invite' then raise;end if;end;
+end$$;
+insert into public.couple_goals(couple_id,author_id,title,target) values(current_setting('test.couple')::uuid,auth.uid(),'QA meta',2);
+insert into public.achievements(user_id,couple_id,message) values(auth.uid(),current_setting('test.couple')::uuid,'QA conquista');
+select set_config('request.jwt.claims',jsonb_build_object('sub',current_setting('test.usera'),'role','authenticated')::text,true);
+update public.profiles set share_workouts=true,share_body=true where user_id=auth.uid();
+do $$begin if (select count(*) from public.couple_goals)<>1 or (select count(*) from public.achievements)<>1 then raise exception 'FAIL shared space inaccessible';end if;end$$;
+select set_config('request.jwt.claims',jsonb_build_object('sub',current_setting('test.userb'),'role','authenticated')::text,true);
+do $$begin
+ if (public.partner_summary()->>'workouts')::int<>1 then raise exception 'FAIL allowed workout summary';end if;
+ if (public.partner_summary()->'measurements'->>'weight_kg')::numeric<>70 then raise exception 'FAIL allowed measurement summary';end if;
+ if (select count(*) from public.workout_sessions)<>0 then raise exception 'FAIL raw workout leak';end if;
+end$$;
+select public.unlink_couple();
+do $$begin if public.partner_summary() is not null or (select count(*) from public.couple_goals)<>0 or (select count(*) from public.achievements)<>0 then raise exception 'FAIL unlink does not revoke';end if;end$$;
+select set_config('request.jwt.claims',jsonb_build_object('sub',current_setting('test.usera'),'role','authenticated')::text,true);
+do $$begin if (select count(*) from public.workout_sessions)<>1 or (select count(*) from public.measurements)<>1 then raise exception 'FAIL unlink deleted private records';end if;end$$;
+set local role anon;
+select set_config('request.jwt.claims','{}',true);
+do $$begin
+ begin perform public.create_couple_invite();raise exception 'FAIL anon invite';exception when insufficient_privilege then null;end;
+ begin perform * from public.measurements;raise exception 'FAIL anon personal data';exception when insufficient_privilege then null;end;
+end$$;
+reset role;
+select 'PASS: owner RLS, cross-owner FK, session/set idempotency, meals/supplements, invite acceptance/reuse, private defaults, explicit sharing, revocation and anonymous denial' as result;
+rollback;

@@ -1,0 +1,14 @@
+import type { PerformedSet, Profile } from '../types';
+export const days=['Dom','Seg','Ter','Qua','Qui','Sex','Sáb'];
+export const today=()=>localDay(new Date());
+export function localDay(d:Date){return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;}
+export function weekStart(d=new Date()){const x=new Date(d);x.setDate(x.getDate()-((x.getDay()+6)%7));x.setHours(0,0,0,0);return x;}
+export const timeLabel=(v:string|null|undefined)=>v?.slice(0,5)||'—';
+export const dateLabel=(v:string)=>new Date(v.length===10?v+'T12:00:00':v).toLocaleDateString('pt-BR',{day:'2-digit',month:'short'});
+export const dayName=(v:string)=>new Date(v.length===10?v+'T12:00:00':v).toLocaleDateString('pt-BR',{weekday:'long'});
+export function progression(sessions:PerformedSet[][],target:number,sets:number){return sessions.length>=2&&sessions.slice(0,2).every(s=>s.length>=sets&&s.every(x=>x.reps>=target))?'Meta atingida em duas sessões. Se a execução estiver confortável, considere um pequeno aumento de carga.':null;}
+export function restrictionAlert(text:string,restrictions:string[]){const s=text.toLocaleLowerCase('pt-BR');const dairy=/leite|queijo|iogurte|manteiga|creme de leite|whey|caseína|caseina|requeijão|requeijao/.test(s);const milkAllergy=restrictions.some(r=>/alergia.*leite|proteína.*leite/i.test(r));if(!dairy||!restrictions.some(r=>/lactose|leite/i.test(r)))return null;if(!milkAllergy&&/sem lactose|zero lactose/i.test(s))return 'Declarado sem lactose: confira o rótulo e os ingredientes. Isso não significa ausência de proteína do leite.';return 'Contém ingrediente potencialmente incompatível com sua restrição. Confira o rótulo e a orientação recebida.';}
+export const energyAdvice=(v:string)=>({Boa:'Siga sua ficha com atenção à técnica e à recuperação.',Moderada:'Considere reduzir acessórios e dar atenção à execução.',Baixa:'Avalie descanso ou atividade leve, especialmente se houver sintomas ou recuperação insuficiente.'}[v]||'');
+export const blankProfile=(id:string,name=''):Profile=>({user_id:id,name,height_cm:null,goal:'',experience:'Iniciante',restrictions:[],wake_time:null,bedtime:null,work_start:null,home_time:null,friday_home_time:null,workout_time:'18:30',duration_minutes:60,weekly_target:4,theme:'system',avatar_path:null,share_workouts:false,share_habits:false,share_body:false});
+export const starterWorkouts=[{name:'Superiores A',day:1,exercises:['supino','puxada','remada','ombros','triceps']},{name:'Inferiores A',day:3,exercises:['legpress','smith','mesa','pelvica','panturrilha']},{name:'Superiores B',day:5,exercises:['articulada','inclinado','neutra','lateral','rosca']},{name:'Inferiores B',day:6,exercises:['smith','stiff','extensora','flexora','sentado']}];
+export function secondsLabel(seconds:number){return `${Math.floor(seconds/60).toString().padStart(2,'0')}:${Math.floor(seconds%60).toString().padStart(2,'0')}`;}
