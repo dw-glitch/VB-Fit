@@ -1,6 +1,6 @@
 # V&B Fit — Nossa Evolução
 
-PWA pessoal em português para organizar treinos, alimentação, hábitos e evolução, com contas independentes e vínculo opcional de casal. React + TypeScript + Vite, Supabase Auth/PostgreSQL/Storage e publicação na Vercel. Sem IA no MVP.
+PWA para uso exclusivo em celular, em português, para organizar treinos, alimentação, hábitos e evolução, com contas independentes e vínculo opcional de casal. React + TypeScript + Vite, Supabase Auth/PostgreSQL/Storage e publicação na Vercel. Sem IA no MVP.
 
 ## Executar
 
@@ -51,3 +51,10 @@ Cache local é voltado a dispositivos pessoais. O backend é a fonte de verdade.
 Domínios em `src/features`, acesso aos dados em `src/services`, regras determinísticas em `src/lib/domain.ts`, componentes acessíveis em `src/components`. Novos provedores de IA devem entrar por backend próprio, com consentimento, limite de custo e possibilidade de desligar. Nenhum fluxo atual depende de IA.
 
 Os históricos carregados na interface têm limites operacionais (300 sessões, 3.000 séries e 365 medições/check-ins). A exportação pessoal pagina todos os registros. Uma versão futura pode adicionar paginação visual e filtros no servidor para históricos extensos.
+
+
+## Uso em celular
+
+A interface usa a mesma estrutura compacta em todas as larguras e fica limitada a 480 px quando aberta em uma tela maior. A navegação inferior respeita a área segura do aparelho; alvos principais têm pelo menos 44 px e campos usam 16 px para evitar zoom involuntário ao editar no iPhone. Em larguras abaixo de 360 px os formulários passam para uma coluna. Os sete dias da semana permanecem em uma linha.
+
+`useMobileViewport` acompanha a área visível e oculta a navegação enquanto o teclado está aberto. As folhas de edição se ajustam à altura disponível. Isso é uma adaptação de layout; a instalação da PWA e o teclado de cada versão de iOS/Android ainda exigem conferência no aparelho.

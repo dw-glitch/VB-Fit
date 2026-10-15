@@ -34,3 +34,13 @@ O endpoint de exclusão foi revisado e publicado, mas uma exclusão real de cont
 - Vercel: projeto `vb-fit`, equipe `bibiaprojetos`.
 
 Nenhum serviço adicional de IA, SMS ou push pago foi contratado. O uso segue os planos e limites já existentes dessas contas. Não foram estimados preços sem consultar o contrato de cada serviço.
+
+
+## Revisão para uso exclusivo em celular
+
+- Layout compacto único, com largura máxima de 480 px inclusive ao visualizar em computador.
+- Alvos de toque ampliados, campos de 16 px, barra inferior com safe area, formulários de uma coluna abaixo de 360 px e controles semanais em sete colunas.
+- Ações de hábitos reorganizadas para não comprimir os nomes; refeições empilhadas; teclado numérico nas séries mantido.
+- Detecção da área visível para ajustar folhas de edição e ocultar a navegação atrás do teclado.
+- Quatro testes adicionais de teclado/viewport (22 testes no total).
+- O painel Supabase foi aberto pelo navegador e o acesso seguro foi submetido. O site exigiu hCaptcha antes de liberar o painel. Nenhuma URL de autenticação foi alterada nessa etapa; depende da conclusão dessa verificação humana.
