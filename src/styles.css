@@ -146,3 +146,13 @@ html[data-keyboard=open] .rest-bar,html[data-keyboard=open] .toast { bottom:12px
 .exercise-stepper button { padding:12px 10px; min-height:48px; font-size:12px; }
 .previous-exercise-icon { transform:rotate(90deg); }
 @media(max-width:359px) { .active-exercise-title { grid-template-columns:minmax(0,1fr) 96px; gap:10px; } .active-exercise-title .exercise-heading { flex-direction:column; } }
+
+.generator-avoid { margin:18px 0; padding:12px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+.generator-avoid > summary { min-height:44px; line-height:1.6; font-size:13px; cursor:pointer; }
+.generated-workout { margin:18px 0; border:1px solid var(--line); border-radius:13px; padding:15px; }
+.generated-workout > summary { cursor:pointer; line-height:1.6; min-height:48px; }
+.generated-workout > summary strong { font-size:14px; }
+.generated-workout > summary span { display:block; margin-top:4px; font-size:12px; color:var(--muted); }
+.generated-exercise h3 { margin:20px 0 7px; font-size:14px; line-height:1.5; }
+.generated-exercise > p { font-size:12px; color:var(--muted); }
+.generator-actions { display:flex; flex-direction:column; gap:12px; margin-top:22px; }

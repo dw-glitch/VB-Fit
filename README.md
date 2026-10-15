@@ -64,3 +64,13 @@ A interface usa a mesma estrutura compacta em todas as larguras e fica limitada 
 ## Guia visual de exercícios
 
 `/exercicios` é um guia público do catálogo, sem dados de contas, com busca por nome, grupo muscular e equipamento. Também é acessível pela tela de entrada e por Treinos. As imagens são locais, totalizam aproximadamente 435 kB e entram no cache estático da PWA; não dependem de servidor de imagens externo. Créditos e licença CC BY-SA 4.0 aparecem ao ampliar. Origem, hashes e termos estão em `docs/EXERCISE-MEDIA.md` e `src/data/exercise-media.json`.
+
+## Montagem automática de treinos
+
+Em Treinos, **Montar meu treino** é a ação principal. Contas sem fichas abrem esse fluxo diretamente, inclusive ao concluir o perfil. O usuário pode escrever uma descrição e confirmar objetivo, experiência, dias, tempo, horário, quantidade de séries e exercícios a evitar. O aplicativo monta e mostra as fichas, com imagens, antes de salvar. **Salvar e começar meu treino** grava todas as fichas e abre o primeiro exercício. Durante um treino ativo, o gerador salva o próximo plano para depois.
+
+A montagem usa regras locais e o catálogo de 19 exercícios de academia; não depende de IA ou serviço pago. A leitura de texto extrai informações explícitas reconhecidas e as expõe em campos editáveis. Não é interpretação irrestrita de linguagem natural. O gerador suporta de 1 a 6 dias, 20 a 120 minutos e 2 a 4 séries. Até três dias usam corpo inteiro em dias intercalados; quatro ou mais alternam superiores/inferiores. Respeita exclusões e recusa combinações sem cobertura suficiente. Não calcula carga máxima, não adapta lesões e não oferece um catálogo completo para casa.
+
+A RPC `save_workout_plan` salva o lote em uma transação com RLS e pode iniciar a sessão na mesma transação. UUIDs são preservados ao repetir um envio após falha, evitando duplicação. Fichas anteriores e históricos são mantidos. A descrição, inclusive eventuais informações clínicas, fica somente no formulário: apenas as fichas geradas são enviadas ao banco.
+
+Fontes das orientações gerais e limites do gerador: `docs/WORKOUT-GENERATOR.md`.

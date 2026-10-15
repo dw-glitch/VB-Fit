@@ -3,7 +3,7 @@
 ## Evidências executadas
 
 - Build de produção com TypeScript estrito e Vite.
-- 44 testes automatizados: 7 de domínio, 4 de fila offline/privacidade, 7 de renderização, 4 de viewport/teclado, 16 de confirmação/recuperação pelo link de e-mail e 4 de cobertura/integridade/renderização das imagens e 2 de interação do fluxo de exercício por tela.
+- 63 testes automatizados: regras de domínio, fila offline/privacidade, renderização, viewport, confirmação/recuperação, imagens, fluxo de exercício por tela, montagem automática e revisão/salvamento das fichas.
 - Teste integrado real em PostgreSQL/Supabase com dois usuários temporários, dentro de transação revertida: RLS, tentativa de propriedade forjada, FKs por proprietário, sessão ativa única, upsert de série, refeições, suplemento, criação/aceitação/reutilização de convite, privacidade inicial, compartilhamento autorizado, desfazer vínculo e bloqueio anônimo.
 - Auditor de segurança Supabase: nenhum alerta após a migration de hardening.
 - Edge Function de exclusão de conta publicada, com validação do usuário autenticado.
@@ -74,3 +74,13 @@ A versão do commit `891550c` foi publicada e aberta no navegador em `https://vb
 A sessão inicia no primeiro exercício com a referência visual ao lado do nome e as séries abaixo. Os controles Anterior/Próximo mostram apenas um exercício por vez, sem pesquisa. Os painéis dos demais exercícios ficam montados e ocultos para preservar cargas/repetições ainda não concluídas ao avançar e voltar. Trocar de exercício não marca séries como concluídas. O último exercício oferece Finalizar treino com a confirmação de conclusão existente.
 
 Dois testes de interação com React DOM conferem abertura direta com imagem e séries, ausência de pesquisa no treino, navegação entre dois exercícios, correspondência das imagens e preservação da carga digitada ao voltar. O guia público continua complementar ao fluxo principal.
+
+## Geração automática das fichas
+
+- Fluxo principal Montar meu treino, aberto automaticamente para quem ainda não tem fichas; perfil inicial direciona a esse passo. A montagem manual é opcional.
+- 16 testes do gerador: preferências do perfil, frequências de 1 a 6 dias, exercícios/imagens existentes, tempo estimado, séries, exclusões, português, dias específicos, equipamento e limites de adaptação.
+- Três testes de interação: descrição → quatro fichas com imagens → salvar e começar; repetição após falha com os mesmos UUIDs; geração de próximo plano sem iniciar outra sessão durante um treino ativo.
+- Teste real no Supabase (`tests/workoutPlan.sql`), em transação revertida: lote completo, repetição idempotente, criação da sessão/snapshot, rollback integral em exercício inválido, isolamento entre usuários, recusa de alteração de ficha alheia e bloqueio anônimo. Resultado PASS.
+- Novo endpoint usa SECURITY INVOKER, search_path vazio, auth.uid e as mesmas políticas de propriedade existentes. A descrição do formulário não é enviada ao endpoint.
+- O auditor de segurança reportou um aviso em Auth sobre proteção de senhas vazadas desativada; a configuração de Auth não foi alterada por esta migration. Referência: https://supabase.com/docs/guides/auth/password-security#password-strength-and-leaked-password-protection. Nenhum alerta foi atribuído à nova função.
+- A verificação do gerador foi feita por testes de interação React DOM e SQL real. O fluxo autenticado completo em aparelho físico permanece sem teste neste ambiente.
