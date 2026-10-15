@@ -44,3 +44,7 @@ Nenhum serviço adicional de IA, SMS ou push pago foi contratado. O uso segue os
 - Detecção da área visível para ajustar folhas de edição e ocultar a navegação atrás do teclado.
 - Quatro testes adicionais de teclado/viewport (22 testes no total).
 - O painel Supabase foi aberto pelo navegador e o acesso seguro foi submetido. O site exigiu hCaptcha antes de liberar o painel. Nenhuma URL de autenticação foi alterada nessa etapa; depende da conclusão dessa verificação humana.
+
+### Conferência da tela de acesso publicada
+
+A tela foi carregada no navegador após o deployment do commit `7e139a8`. A inspeção do DOM confirmou conteúdo compacto de 480 px, campos de 48 px com fonte de 16 px, botão principal de 44 px e largura de rolagem igual à largura visível da página. A captura está em `docs/mobile-login.jpg`. Essa evidência cobre a tela de acesso; os módulos autenticados e aparelhos físicos ainda não foram testados no navegador.
